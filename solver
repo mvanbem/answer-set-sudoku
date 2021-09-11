@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: solver FILE" >&2
+    echo >&2
+    echo "    FILE: Path to a problem instance file." >&2
+    exit 1
+fi
+
+# NOTE: Request two models so the visualize script can query for the existence of more than one
+# solution.
+./visualize.py -q sudoku.lp "$1" 2
