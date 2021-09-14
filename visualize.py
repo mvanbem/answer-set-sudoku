@@ -57,7 +57,9 @@ class Application:
             if rule == 'standard':
                 prg.load('rules/box.lp')
             else:
-                prg.load('rules/{}.lp'.format(rule))
+                path = 'rules/{}.lp'.format(rule)
+                print('Loading', path)
+                prg.load(path)
 
         # Go ahead with the solve.
         prg.ground([('base', [])])
